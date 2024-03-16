@@ -88,13 +88,14 @@ This software is licensed under the GNU GPL-2.0; the complete license text can b
 This repository is a fork of [aleab/toastify](https://github.com/aleab/toastify) that has been archived by the owner on Feb 2, 2023.
 See also the [original project](https://github.com/nachmore/toastify) this repository is a fork of.
 
-This project uses third-party libraries; their verbatim licenses can be found at their libraries.
+This project uses third-party libraries; their verbatim licenses can be found [here][license-3rdparty].
 
 
 [//]: # (Links)
 
 [toastify-showcase]: <https://raw.githubusercontent.com/aleab/toastify/gh-pages/img/toastify-showcase.png>
-[license]: <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html#SEC1>
+[license]: </LICENSE>
+[license-3rdparty]: </LICENSE-3RD-PARTY>
 
 [release-latest]: <https://github.com/IGZmanuelMartinVivaldi/toastify/releases/latest>
 [commits]: <https://github.com/IGZmanuelMartinVivaldi/toastify/commits/master>
