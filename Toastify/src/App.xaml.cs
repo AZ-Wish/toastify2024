@@ -77,7 +77,7 @@ namespace Toastify
                     {
                         ProcessCommandLineArguments(args);
                         SetupCultureInfo();
-                        SetupLogger();
+ //                       SetupLogger();    //1.12.0 It´s already done at AssembliInfo.cs
                     }
                     catch (Exception e)
                     {
@@ -653,7 +653,7 @@ namespace Toastify
             }
         }
 
-        public static RepoInfo RepoInfo { get; } = new RepoInfo("toastify", "aleab");
+        public static RepoInfo RepoInfo { get; } = new RepoInfo("toastify", "IGZmanuelMartinVivaldi");
 
         #endregion
 

@@ -64,7 +64,7 @@
                 <TextBlock Grid.Row="3" FontSize="10" Foreground="#FFE2E2E2">
                     <Hyperlink Name="LatestVersion" Foreground="#FFE2E2E2" NavigateUri="{Binding Path=UpdateUrl, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">Checking for updates...</Hyperlink>
                 </TextBlock>
-                <TextBlock Grid.Row="4" FontSize="10" Foreground="#FFBDBDBD" TextWrapping="Wrap">Credits to: Linus, Maaaackan, Aqualize, nachmore, aleab...</TextBlock>
+                <TextBlock Grid.Row="4" FontSize="10" Foreground="#FFBDBDBD" TextWrapping="Wrap">Credits to: Linus, Maaaackan, Aqualize, nachmore, aleab, mm_vivaldi...</TextBlock>
             </Grid>
 			<TextBlock Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFD6D6D6">Created by Jesper Palm 2009, licensed under GPLv2.</TextBlock>
         </Grid>

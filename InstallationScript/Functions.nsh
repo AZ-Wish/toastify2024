@@ -85,7 +85,7 @@ Function TerminateToastify
     # Kill Toastify
     System::Call 'kernel32::CloseHandle(i $R1)'
     DetailPrint "Shutting down ${APPNAME}..."
-    KillProcWMI::KillProc "Toastify.exe"
+    KillProc::KillProc "Toastify.exe"
     Sleep 2000
   ${EndIf}
 

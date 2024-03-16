@@ -22,7 +22,9 @@ namespace ToastifyAPI
         private static readonly List<string> spotifyMainWindowNames = new List<string>
         {
             "SpotifyMainWindow",
-            "Chrome_WidgetWin_0" // Since v1.0.75.483.g7ff4a0dc
+            "Chrome_WidgetWin_0",   // Since v1.0.75.483.g7ff4a0dc
+            "Chrome_WidgetWin_1",   // Since v1.12.0 at 5/5/2024
+            "Spotify Premium"       // Since v1.12.0 at 5/5/2024
         };
 
         public static string ProcessName { get; } = "spotify";
@@ -95,7 +97,7 @@ namespace ToastifyAPI
         }
 
         public static IntPtr GetMainWindowHandle(uint pid)
-        {
+                {
             if (pid == 0)
                 return IntPtr.Zero;
 
@@ -104,7 +106,9 @@ namespace ToastifyAPI
             {
                 string className = NativeWindows.GetClassName(h);
                 string windowName = NativeWindows.GetWindowTitle(h);
-                return !string.IsNullOrWhiteSpace(windowName) && spotifyMainWindowNames.Contains(className);
+                bool valid = !string.IsNullOrWhiteSpace(windowName) && spotifyMainWindowNames.Contains(className);
+                logger.Debug($"className:{className} windowName:{windowName} : {valid}");
+                return valid;
             }).ToList();
 
             if (possibleMainWindows.Count > 1)

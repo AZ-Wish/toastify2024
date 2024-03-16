@@ -1,12 +1,12 @@
 !define APPNAME "Toastify"
-!define PUBLISHER "Jesper Palm, Oren Nachman, Alessandro Attard Barbini"
+!define PUBLISHER "Jesper Palm, Oren Nachman, Alessandro Attard Barbini, Manuel Martin-Vivaldi"
 !define DESCRIPTION "Toastify adds global hotkeys and toast notifications to Spotify"
 !define VERSIONMAJOR 1
-!define VERSIONMINOR 11
-!define VERSIONBUILD 2
-!define HELPURL "https://github.com/aleab/toastify/issues"
-!define UPDATEURL "https://github.com/aleab/toastify/releases"
-!define ABOUTURL "https://aleab.github.io/toastify/"
+!define VERSIONMINOR 12
+!define VERSIONBUILD 0
+!define HELPURL "https://github.com/IGZmanuelMartinVivaldi/toastify/issues"
+!define UPDATEURL "https://github.com/IGZmanuelMartinVivaldi/toastify/releases"
+!define ABOUTURL "https://github.com/IGZmanuelMartinVivaldi/toastify"
 
 !define RegUninstallKey "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
 

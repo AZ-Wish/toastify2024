@@ -126,7 +126,7 @@ The application will be started with default values.</value>
   </data>
   <data name="ERROR_STARTUP_PROCESS" xml:space="preserve">
     <value>Could not find Spotify process!
-If Spotify is running, please open an issue at github.com/aleab/toastify.</value>
+If Spotify is running, please open an issue at https://github.com/IGZmanuelMartinVivaldi/toastify</value>
   </data>
   <data name="ERROR_STARTUP_RESTART" xml:space="preserve">
     <value>An error occurred when trying to start Spotify.
@@ -137,7 +137,7 @@ Please restart the application.</value>
   </data>
   <data name="ERROR_STARTUP_SPOTIFY_API_STATUS_NULL" xml:space="preserve">
     <value>An error occurred when trying to connect with Spotify: SpotifyAPI returned a null status.
-Please open an issue at github.com/aleab/toastify.</value>
+Please open an issue at https://github.com/IGZmanuelMartinVivaldi/toastify</value>
   </data>
   <data name="ERROR_UNKNOWN" xml:space="preserve">
     <value>An unknown error occurred when trying to start Spotify.</value>

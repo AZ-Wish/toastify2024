@@ -321,7 +321,7 @@ namespace Toastify.Core
             this.spotifyProcess = null;
             if (!this.IsRunning && process == null)
             {
-                logger.Debug("Spotify is not running; lanching it nad waiting for input idle...");
+                logger.Info("Spotify is not running; lanching it and waiting for input idle...");
                 this.spotifyProcess = this.LaunchSpotifyAndWaitForInputIdle(e);
             }
             else
@@ -837,7 +837,7 @@ namespace Toastify.Core
                 else
                 {
                     string logError = this.spotifyProcess.HasExited ? "process has been terminated" : "null handle";
-                    logger.Fatal($"Couldn't find Spotify's window: {logError}");
+                    logger.Fatal($"Couldn't find Spotify's window 1: {logError}");
 
                     string errorMsg = Resources.ERROR_STARTUP_SPOTIFY_WINDOW_NOT_FOUND;
                     MessageBox.Show($"{errorMsg}", "Toastify", MessageBoxButton.OK, MessageBoxImage.Error);

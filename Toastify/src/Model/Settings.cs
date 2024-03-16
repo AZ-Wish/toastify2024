@@ -71,7 +71,7 @@ namespace Toastify.Model
                             // settings fail to load)
                         }
                     }
-
+                    logger.Info($"Created user settings directory: \"{settingsPath}\"");
                     _settingsFilePath = Path.Combine(settingsPath, SETTINGS_FILENAME);
                 }
 

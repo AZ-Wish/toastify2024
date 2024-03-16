@@ -22,13 +22,13 @@
     <TimeOfDayTotalSeconds>$([MSBuild]::Divide($([System.DateTime]::get_Now().get_TimeOfDay().get_TotalSeconds()), 2).ToString('F0'))</TimeOfDayTotalSeconds>
     <Revision>$(TimeOfDayTotalSeconds)</Revision>
     <Revision Condition="'$(Configuration)' != 'Windows (Release)'">0</Revision>
-    <Version>1.11.2</Version>
+    <Version>1.12.0</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version).$(Revision)</FileVersion>
     <AssemblyName>Toastify</AssemblyName>
     <Description>Toast for Spotify</Description>
-    <Authors>Alessandro Attard Barbini, Oren Nachman, Jesper Palm</Authors>
-    <Copyright>© 2009-2018 $(Authors)</Copyright>
+    <Authors>Alessandro Attard Barbini, Oren Nachman, Jesper Palm, Manuel Martin-Vivaldi</Authors>
+    <Copyright>© 2009-2024 Alessandro Attard Barbini, Oren Nachman, Jesper Palm, Manuel Martin-Vivaldi</Copyright>
   </PropertyGroup>
 
   <!-- Other Properties -->
@@ -95,7 +95,9 @@
     <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
     <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
 
-    <EmbeddedResource Include="log4net.config" />
+    <EmbeddedResource Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Resource Include="Resources\**\*.png" />
     <Resource Include="Resources\**\*.ico" />
 
@@ -188,6 +190,8 @@
   <PropertyGroup>
     <PreBuildEvent />
     <PostBuildEvent />
+    <Company>Alessandro Attard Barbini, Oren Nachman, Jesper Palm, Manuel Martin-Vivaldi</Company>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   
   <!-- Events' Properties and Items -->

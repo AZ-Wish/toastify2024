@@ -1,0 +1,15 @@
+{
+    "version": "1.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/toastify.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

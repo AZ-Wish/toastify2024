@@ -1,0 +1,813 @@
+<!doctype html>
+<html id="mdhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <title>Markdown preview</title>
+    <style>body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+}
+
+@font-face {
+  font-family: octicons-link;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+  color: #032f62;
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.markdown-body .pl-c2::before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  font-weight: bold;
+  color: #22863a;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  font-weight: bold;
+  color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+  font-style: italic;
+  color: #24292e;
+}
+
+.markdown-body .pl-mb {
+  font-weight: bold;
+  color: #24292e;
+}
+
+.markdown-body .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+  font-weight: bold;
+  color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 700;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr::before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body .octicon {
+  vertical-align: text-bottom;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0 !important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px !important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px !important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px !important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px !important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px !important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px !important;
+}
+
+.markdown-body::before {
+  display: table;
+  content: "";
+}
+
+.markdown-body::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  float: left;
+  padding-right: 4px;
+  margin-left: -20px;
+  line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 1px;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #d5d5d6;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+  font-style: italic;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: solid 1px #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: 0.875em;
+}
+
+.markdown-body h6 {
+  font-size: 0.85em;
+  color: #6a737d;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: 0.25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #f1f1f1;
+  border: 1px solid #cecece;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f1f1f1;
+  border: 1px solid #cecece;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: solid 1px #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.markdown-body :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.2em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}</style>
+  </head>
+  <body>
+    <article class="markdown-body">
+      <p data-sourcepos="1:1-2:81">C:\IGZ\Proyectos\Personal\toastify2024\Toastify\bin\AnyCPU\Debug\Windows\net472
+C:\IGZ\Proyectos\Personal\toastify2024\Toastify\bin\AnyCPU\Release\Windows\net472</p>
+<ul data-sourcepos="5:1-10:0">
+<li data-sourcepos="5:1-10:0">No lanza Spotify
+C:\Users\manuel.martinvivaldi\AppData\Local\Microsoft\WindowsApps + Spotify.exe
+%LOCALAPPDATA%\Microsoft\WindowsApps + Spotify.exe
+C:\Program Files\WindowsApps\SpotifyAB.SpotifyMusic_1.233.1039.0_x64__zpdnekdrzrea0\Spotify.exe</li>
+</ul>
+<p data-sourcepos="11:1-19:31">??? Github
+??? Github release (about)
+??? Logs
+C:\Users\manuel.martinvivaldi\AppData\Local\Toastify\Toastify.log
+%LOCALAPPDATA%\Toastify\Toastify.log
+C:\IGZ\Proyectos\Personal\toastify2024\Toastify\bin\AnyCPU\Debug\Windows\net472\log.log
+??? Settings
+C:\Users\manuel.martinvivaldi\AppData\Roaming\Toastify\Toastyfy.cfg
+%APPDATA%\Toastify\Toastify.cfg</p>
+<p data-sourcepos="22:1-22:15">??? Update libs</p>
+<ul data-sourcepos="25:1-31:0">
+<li data-sourcepos="25:1-31:0">Instalador
+C:\IGZ\Proyectos\Personal\toastify2024\Toastify\bin\AnyCPU\Release\Windows\net472\ToastifyInstaller.exe</li>
+</ul>
+<h1 data-sourcepos="32:1-32:10">Toastify</h1>
+<p data-sourcepos="34:1-34:245">A fork of the original <a href="https://github.com/aleab/toastify">aleab/Toastify</a> project, which has been archived by the owner on Feb 2, 2023. This fork is intended to keep the project alive and maintained, and maybe add new features and improvements.</p>
+<p data-sourcepos="36:1-36:83">Another updated working version <a href="https://github.com/aleab/toastify">aleab/Toastify</a></p>
+<p data-sourcepos="39:1-41:97"><a href="https://github.com/IGZmanuelMartinVivaldi/toastify/commits/master"><img src="https://img.shields.io/github/last-commit/aleab/toastify/master.svg?label=Last%20Commit&amp;maxAge=60" alt="GitHub last commit (master)" /></a>
+<a href="https://github.com/IGZmanuelMartinVivaldi/toastify/releases/latest"><img src="https://img.shields.io/github/release/aleab/toastify.svg?label=Release&amp;maxAge=60" alt="GitHub release" /></a>
+<a href="/LICENSE"><img src="https://img.shields.io/badge/License-GPL%20v2-blue.svg?maxAge=86400" alt="Github license" /></a></p>
+<p data-sourcepos="43:1-43:39"><img src="https://raw.githubusercontent.com/aleab/toastify/gh-pages/img/toastify-showcase.png" alt="toastify-showcase" /></p>
+<p data-sourcepos="45:1-45:64">Toastify adds global hotkeys and toast notifications to Spotify.</p>
+<p data-sourcepos="47:1-47:55">This application uses <a href="https://github.com/JohnnyCrazy/SpotifyAPI-NET">SpotifyAPI-NET</a>.</p>
+<h2 data-sourcepos="49:1-49:11">Features</h2>
+<ul data-sourcepos="50:1-53:0">
+<li data-sourcepos="50:1-50:71">Display the current playing track in a customizable toast-style popup</li>
+<li data-sourcepos="51:1-51:96">Global hotkeys for media actions (Play/Pause, Next/Previous track, Mute, Fast Forward, Rewind)</li>
+<li data-sourcepos="52:1-53:0">:heavy_exclamation_mark: Compatible with the Microsoft Store version of Spotify</li>
+</ul>
+<h1 data-sourcepos="54:1-54:47">THE ORIGINAL PROJECT WAS NO LONGER MAINTAINED</h1>
+<p data-sourcepos="55:1-55:84">If you are looking for a replacement you can check out these other amazing projects:</p>
+<ul data-sourcepos="56:1-58:0">
+<li data-sourcepos="56:1-56:53"><a href="https://github.com/AudioBand/AudioBand">AudioBand</a></li>
+<li data-sourcepos="57:1-58:0"><a href="https://github.com/dvx/lofi">Lofi</a></li>
+</ul>
+<p data-sourcepos="59:1-59:125">or use Spotify's own overlay on Windows (check out <a href="https://www.alphr.com/spotify-overlay-with-game-windows/">this article</a>).</p>
+<h2 data-sourcepos="62:1-62:15">Requirements</h2>
+<ul data-sourcepos="63:1-67:0">
+<li data-sourcepos="63:1-63:28">Windows (11, 10, 8/8.1, 7)</li>
+<li data-sourcepos="64:1-64:33">.NET Framework 4.7.2 or greater</li>
+<li data-sourcepos="65:1-67:0">Spotify</li>
+</ul>
+<h2 data-sourcepos="68:1-68:31">Information for contributors</h2>
+<ul data-sourcepos="69:1-73:0">
+<li data-sourcepos="69:1-69:56">The language version used to build the project is C# 7</li>
+<li data-sourcepos="70:1-70:81">The solution requires Visual Studio 2017 (or Visual Studio Code, alternatively)</li>
+<li data-sourcepos="71:1-71:68">Dependencies are not included. Use of NuGet is highly recommended.</li>
+<li data-sourcepos="72:1-73:0">The repository has a git submodule; use <code>git submodule update --init --recursive</code> to initialize it.</li>
+</ul>
+<p data-sourcepos="74:1-79:15">Install plugin
+<a href="https://nsis.sourceforge.io/NSISpcre_plug-in">https://nsis.sourceforge.io/NSISpcre_plug-in</a> at C:\Program Files (x86)\NSIS\Plugins\x86-unicode
+KillProc (rename)
+DotNetChecker (unicode)
+ShellLink
+ShellExecAsUser</p>
+<h2 data-sourcepos="82:1-82:38">Requirements for Visual Studio 2017</h2>
+<ul data-sourcepos="83:1-89:0">
+<li data-sourcepos="83:1-83:49">.NET SDK 8.0.201: <a href="https://aka.ms/donet/download">https://aka.ms/donet/download</a></li>
+<li data-sourcepos="84:1-85:17">.NET Framework 4.7.2 Developer Pack: <a href="https://aka.ms/msbuild/developerpacks">https://aka.ms/msbuild/developerpacks</a>
+Toastify.csproj</li>
+<li data-sourcepos="86:1-89:0">.NET Framework 4.5.2 Developer Pack: <a href="https://aka.ms/msbuild/developerpacks">https://aka.ms/msbuild/developerpacks</a>
+Toastify.Installer.csproj
+Toastify.Updater.csproj</li>
+</ul>
+<h2 data-sourcepos="90:1-90:62">Additional requirements for Visual Studio Code (not tested)</h2>
+<p data-sourcepos="91:1-91:118">C# Dev Kit extension for Visual Studio Code: <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp">https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp</a></p>
+<h2 data-sourcepos="94:1-94:11">Building</h2>
+<p data-sourcepos="96:1-97:21">Updating version:
+.\update-version.cmd</p>
+<p data-sourcepos="99:1-99:30">Executing task: dotnet: build</p>
+<h2 data-sourcepos="104:1-104:10">Notices</h2>
+<ul data-sourcepos="105:1-119:0">
+<li data-sourcepos="105:1-105:88">
+<p data-sourcepos="105:3-105:88">Toastify is <strong>not</strong> a Spotify <strong>replacement</strong>. You need both running at the same time.</p>
+</li>
+<li data-sourcepos="106:1-110:134">
+<p data-sourcepos="106:3-108:122"><strong>Windows 10</strong>: In the latest versions of Windows, SmartScreen will probably prevent the installer from starting, because it is not signed.<br />
+You have two options: either <em>Don't run</em> the installer and forget about Toastify, or click on <em>More info</em> and <em>Run anyway</em>.<br />
+Whatever is your choice, I strongly advise you to <strong>not</strong> disable Windows SmartScreen — its warnings are meaningful.</p>
+<p data-sourcepos="110:3-110:134">If you have any concerns, feel free to take a look at the code (it's free :wink:) and ask questions in the <a href="https://github.com/IGZmanuelMartinVivaldi/toastify/issues">issues</a> section.</p>
+</li>
+<li data-sourcepos="111:1-119:0">
+<p data-sourcepos="111:3-111:215">If you are updating from the original version of Toastify (v1.8.3), be sure to uninstall it completely before installing this version. You should also remove any file from the following directories, if they exist:</p>
+<ul data-sourcepos="112:3-119:0">
+<li data-sourcepos="112:3-112:94"><em>&quot;%LocalAppData%\Toastify&quot;</em> (for example: <em>&quot;C:\Users\{UserName}\AppData\Local\Toastify&quot;</em>)</li>
+<li data-sourcepos="113:3-119:0"><em>&quot;%AppData%\Toastify&quot;</em> (for example: <em>&quot;C:\Users\{UserName}\AppData\Roaming\Toastify&quot;</em>)
+In this cases this version of Toastify will use the configuration and log files found at that locations.</li>
+</ul>
+</li>
+</ul>
+<h2 data-sourcepos="120:1-120:10">License</h2>
+<p data-sourcepos="121:1-122:280">This software is licensed under the GNU GPL-2.0; the complete license text can be found <a href="/LICENSE">here</a>.<br />
+This repository is a fork of <a href="https://github.com/aleab/toastify">aleab/toastify</a> that has been archived by the owner on Feb 2, 2023. See also the <a href="https://github.com/nachmore/toastify">original project</a> this repository is a fork of, and its old <a href="http://toastify.codeplex.com/">codeplex page</a>.</p>
+<p data-sourcepos="124:1-124:103">This project uses third-party libraries; their verbatim licenses can be found <a href="/LICENSE-3RD-PARTY">here</a>.</p>
+
+    </article>
+  </body>
+</html>

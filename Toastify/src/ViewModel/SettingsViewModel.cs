@@ -100,7 +100,7 @@ namespace Toastify.ViewModel
         [PropertyDependency]
         public IToastifyBroadcaster ToastifyBroadcaster { get; set; }
 
-        public string ToastifyBroadcasterWikiUrl { get; } = "https://github.com/aleab/toastify/wiki/Toastify-Broadcaster";
+        public string ToastifyBroadcasterWikiUrl { get; } = "https://github.com/IGZmanuelMartinVivaldi/toastify/wiki";
 
         #endregion
 
