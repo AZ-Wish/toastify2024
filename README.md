@@ -1,49 +1,13 @@
-C:\IGZ\Proyectos\Personal\toastify2024\Toastify\bin\AnyCPU\Debug\Windows\net472
-C:\IGZ\Proyectos\Personal\toastify2024\Toastify\bin\AnyCPU\Release\Windows\net472
-
-
-* No lanza Spotify
-C:\Users\manuel.martinvivaldi\AppData\Local\Microsoft\WindowsApps + Spotify.exe
-%LOCALAPPDATA%\Microsoft\WindowsApps + Spotify.exe
-C:\Program Files\WindowsApps\SpotifyAB.SpotifyMusic_1.233.1039.0_x64__zpdnekdrzrea0\Spotify.exe
-
-
-??? Github
-??? Github release (about)
-??? Logs
-C:\Users\manuel.martinvivaldi\AppData\Local\Toastify
-C:\IGZ\Proyectos\Personal\toastify2024\Toastify\bin\AnyCPU\Debug\Windows\net472\log.log
-
-??? Update libs
-
-
-* Instalador
-C:\IGZ\Proyectos\Personal\toastify2024\Toastify\bin\AnyCPU\Release\Windows\net472\ToastifyInstaller.exe
-Install plugin
-	https://nsis.sourceforge.io/NSISpcre_plug-in at C:\Program Files (x86)\NSIS\Plugins\x86-unicode
-KillProc (rename)
-DotNetChecker (unicode)
-ShellLink
-ShellExecAsUser
-
-
-
-* Actualizar version:
-	.\update-version.cmd
-
-
-
-
 # Toastify
 
-A fork of the original [aleab/Toastify](https://github.com/aleab/toastify) project, which has been archived by the owner on Feb 2, 2023. This fork is intended to keep the project alive and maintained, and maybe add new features and improvements.
+This project is a fork of the original [aleab/Toastify](https://github.com/aleab/toastify) project, which has been archived by the owner on Feb 2, 2023. This fork is intended to keep the project alive and functional, and maybe add new features and improvements.
+
+Another updated working version is available from  [IceyFL/Toastify](https://github.com/IceyFL/Fixed-Toastify)
 
 
-[![Codacy grade](https://api.codacy.com/project/badge/Grade/dcbbd6b1f6cf45658a0f9232a5f35706)][aleab/toastify@codacy]
-[![GitHub last commit (master)](https://img.shields.io/github/last-commit/aleab/toastify/master.svg?label=Last%20Commit&maxAge=60)][commits]
-[![GitHub release](https://img.shields.io/github/release/aleab/toastify.svg?label=Release&maxAge=60)][release-latest]
+[![GitHub last commit (master)](https://img.shields.io/github/last-commit/IGZmanuelMartinVivaldi/toastify/master.svg?label=Last%20Commit&maxAge=60)][commits]
+[![GitHub release](https://img.shields.io/github/release/IGZmanuelMartinVivaldi/toastify.svg?label=Release&maxAge=60)][release-latest]
 [![Github license](https://img.shields.io/badge/License-GPL%20v2-blue.svg?maxAge=86400)][license]
-[![Gitter](https://badges.gitter.im/aleab/toastify.svg)][aleab/toastify@gitter]
 
 ![toastify-showcase][toastify-showcase]
 
@@ -67,62 +31,74 @@ or use Spotify's own overlay on Windows (check out [this article](https://www.al
 ## Requirements
 * Windows (11, 10, 8/8.1, 7)
 * .NET Framework 4.7.2 or greater
-* Spotify
+* Spotify 
 
-## Requirement for Visual Studio Code
-
-C@ Dev Kit extension for Visual Studio Code: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
-.NET SDK 8.0.201: https://aka.ms/dotnet/download
-.NET Framework 4.7.2 Developer Pack https://aka.ms/msbuild/developerpacks
-  Toastify.csproj
-.NET Framework 4.5.2 Developer Pack https://aka.ms/msbuild/developerpacks
-  Toastify.Installer.csproj
-  Toastify.Updater.csproj
-git submodule update --init --recursive
-
-## Building
-
-Executing task: dotnet: build 
-
-
-
-## Notices
-* Toastify is **not** a Spotify **replacement**. You need both running at the same time.
-* **Windows 10**: In the latest versions of Windows, SmartScreen will probably prevent the installer from starting, because it is not signed.  
-  You have two options: either *Don't run* the installer and forget about Toastify, or click on *More info* and *Run anyway*.  
-  Whatever is your choice, I strongly advise you to **not** disable Windows SmartScreen — its warnings are meaningful.  
-
-  If you have any concerns, feel free to take a look at the code (it's free :wink:) and ask questions in the [issues][issues] section.
-* If you are updating from the original version of Toastify (v1.8.3), be sure to uninstall it completely before installing this version. You should also remove any file from the following directories, if they exist:
-  - *"%LocalAppData%\Toastify"* (for example: *"C:\Users\\{UserName}\AppData\Local\Toastify"*)
-  - *"%AppData%\Toastify"* (for example: *"C:\Users\\{UserName}\AppData\Roaming\Toastify"*)
 
 ## Information for contributors
 * The language version used to build the project is C# 7
 * The solution requires Visual Studio 2017 (or Visual Studio Code, alternatively)
 * Dependencies are not included. Use of NuGet is highly recommended.
 * The repository has a git submodule; use `git submodule update --init --recursive` to initialize it.
+* Several [NSIS plugins](https://nsis.sourceforge.io/Category:Plugins) are required to create the installer:
+	* NSISpcre_plug-in
+	* KillProc
+	* DotNetChecker
+	* ShellLink
+	* ShellExecAsUser
+
+
+## Requirements for Visual Studio 2017
+* [.NET SDK 8.0.201](https://aka.ms/donet/download)
+* [.NET Framework 4.7.2 Developer Pack](https://aka.ms/msbuild/developerpacks) for Toastify project
+* [.NET Framework 4.5.2 Developer Pack](https://aka.ms/msbuild/developerpacks) for Toastify.Installer and Toastify.Updater projects
+
+## Additional requirements for Visual Studio Code (not tested)
+[C# Dev Kit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+
+Executing task: dotnet: build 
+
+## Building
+
+Updating version:
+	`.\update-version.cmd`
+
+Compile the project
+
+The executable installer `ToastifyInstaller.exe` is available at the Release folder
+
+
+## Notices
+* Toastify is **not** a Spotify **replacement**. You need both running at the same time.
+* **Windows**: In the latest versions of Windows, SmartScreen will probably prevent the installer from starting, because it is not signed.  
+  You have two options: either *Don't run* the installer and forget about Toastify, or click on *More info* and *Run anyway*.  
+  Whatever is your choice, I strongly advise you to **not** disable Windows SmartScreen — its warnings are meaningful.  
+
+  If you have any concerns, feel free to take a look at the code (it's free :wink:) and ask questions in the [issues][issues] section.
+* If you are updating from the original version of Toastify (v1.8.3), be sure to uninstall it completely before installing this version. You should also remove any file from the following directories, if they exist:
+  - *"%LocalAppData%\Toastify"* (for example: *"C:\Users\{UserName}\AppData\Local\Toastify"*)
+  - *"%AppData%\Toastify"* (for example: *"C:\Users\\UserName}\AppData\Roaming\Toastify"*)
+
+If this happen this version of Toastify will use the configuration and log files found at these locations:
+* Log: 		%LOCALAPPDATA%\Toastify\Toastify.log
+* Config: 	%APPDATA%\Toastify\Toastify.cfg
 
 
 ## License
 This software is licensed under the GNU GPL-2.0; the complete license text can be found [here][license].  
-This repository is a fork of [aleab/toastify](https://github.com/aleab/toastify) that has been archived by the owner on Feb 2, 2023. See also the [original project](https://github.com/nachmore/toastify) this repository is a fork of, and its old [codeplex page][toastify@codeplex].
+This repository is a fork of [aleab/toastify](https://github.com/aleab/toastify) that has been archived by the owner on Feb 2, 2023.
+See also the [original project](https://github.com/nachmore/toastify) this repository is a fork of.
 
-This project uses third-party libraries; their verbatim licenses can be found [here][license-3rdparty].
+This project uses third-party libraries; their verbatim licenses can be found at their libraries.
 
 
 [//]: # (Links)
 
 [toastify-showcase]: <https://raw.githubusercontent.com/aleab/toastify/gh-pages/img/toastify-showcase.png>
-[license]: </LICENSE>
-[license-3rdparty]: </LICENSE-3RD-PARTY>
+[license]: <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html#SEC1>
 
 [release-latest]: <https://github.com/IGZmanuelMartinVivaldi/toastify/releases/latest>
 [commits]: <https://github.com/IGZmanuelMartinVivaldi/toastify/commits/master>
 [issues]: <https://github.com/IGZmanuelMartinVivaldi/toastify/issues>
 
 [aleab/toastify@github]: <https://github.com/aleab/toastify/>
-[aleab/toastify@codacy]: <https://www.codacy.com/app/aleab/toastify>
-[aleab/toastify@gitter]: <https://gitter.im/aleab-toastify>
 [SpotifyAPI-NET]: <https://github.com/JohnnyCrazy/SpotifyAPI-NET>
-[toastify@codeplex]: <http://toastify.codeplex.com/>

@@ -77,7 +77,7 @@ namespace Toastify
                     {
                         ProcessCommandLineArguments(args);
                         SetupCultureInfo();
- //                       SetupLogger();    //1.12.0 It´s already done at AssembliInfo.cs
+                        SetupLogger();    //1.12.0 It´s already done at AssembliInfo.cs
                     }
                     catch (Exception e)
                     {
