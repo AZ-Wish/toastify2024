@@ -175,14 +175,17 @@ namespace Toastify
 
         private static void SetupLogger()
         {
+
+            // Assembly.GetExecutingAssembly().GetManifestResourceNames());
             // Configure log4net
             using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Toastify.log4net.config"))
             {
                 ILoggerRepository loggerRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
                 XmlConfigurator.Configure(loggerRepository, stream);
-
+                
                 // Set root logger's log level
                 Logger rootLogger = ((Hierarchy)loggerRepository).Root;
+                
 #if DEBUG || TEST_RELEASE
                 rootLogger.Level = Level.Debug;
 #else
@@ -191,12 +194,14 @@ namespace Toastify
                 else if (AppArgs.IsLogDisabled)
                     rootLogger.Level = Level.Off;
 #endif
-
                 // Modify RollingFileAppender's destination
                 var rollingFileAppender = (RollingFileAppender)loggerRepository.GetAppenders().FirstOrDefault(appender => appender.Name == "RollingFileAppender");
                 if (rollingFileAppender == null)
                     throw new ApplicationStartupException("RollingFileAppender not found");
-                rollingFileAppender.File = Path.Combine(AppArgs.LogDirectory, "Toastify.log");
+                //if (String.IsNullOrEmpty(rollingFileAppender.File))   //1.12.1 default path could  have spaces and fail
+                rollingFileAppender.File = Path.Combine(AppArgs.LogDirectory, "Toastify.log");  //1.12.2 Already defined at log4net.config
+
+//                MessageBox.Show($"Log: {rollingFileAppender.File} / {Path.Combine(AppArgs.LogDirectory, "Toastify_bak.log")}}", "Toastify", MessageBoxButton.OK, MessageBoxImage.Warning);
 
                 // Set RollingFileAppender's minimum log level
                 IFilter filter = rollingFileAppender.FilterHead;

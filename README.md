@@ -57,7 +57,7 @@ Updating version: [View/Terminal]
 
 Compile the project
 
-The executable installer `ToastifyInstaller.exe` is available at the Release folder
+The executable installer `ToastifyInstaller.exe` is available in the `\bin\AnyCPU\Release` path
 
 
 ## Building VS 2017
@@ -67,7 +67,7 @@ Updating version: [View/Other Windows/Package Manager Controller]
 
 Compile the project
 
-The executable installer `ToastifyInstaller.exe` is available at the Release folder
+The executable installer `ToastifyInstaller.exe` is available in the `\bin\AnyCPU\Release` path
 
 
 ## Additional requirements for Visual Studio Code (not tested)
@@ -88,7 +88,7 @@ Executing task: dotnet: build
   - *"%LocalAppData%\Toastify"* (for example: *"C:\Users\{UserName}\AppData\Local\Toastify"*)
   - *"%AppData%\Toastify"* (for example: *"C:\Users\\UserName}\AppData\Roaming\Toastify"*)
 
-If this happen this version of Toastify will use the configuration and log files found at these locations:
+This version of Toastify use the configuration and log files found at these locations:
 * Log: 		%LOCALAPPDATA%\Toastify\Toastify.log
 * Config: 	%APPDATA%\Toastify\Toastify.cfg
 

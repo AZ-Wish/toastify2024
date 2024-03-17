@@ -55,8 +55,11 @@ namespace Toastify.Model
             {
                 if (string.IsNullOrWhiteSpace(_settingsFilePath))
                 {
-                    string settingsPath = App.ApplicationData;
 
+                    string settingsPath;
+ //                 settingsPath = AppDomain.CurrentDomain.BaseDirectory;     //Option to use Toastify folder instead of user settings
+
+                    settingsPath = App.ApplicationData;
                     if (!Directory.Exists(settingsPath))
                     {
                         try
@@ -66,13 +69,12 @@ namespace Toastify.Model
                         catch (Exception ex)
                         {
                             logger.Error($"Error creating user settings directory (\"{settingsPath}\")", ex);
-
                             // No messagebox as this should not happen (and there will be a MessageBox later on when
                             // settings fail to load)
                         }
                     }
-                    logger.Info($"Created user settings directory: \"{settingsPath}\"");
                     _settingsFilePath = Path.Combine(settingsPath, SETTINGS_FILENAME);
+                    logger.Info($"User settings file: \"{_settingsFilePath}\"");
                 }
 
                 return _settingsFilePath;

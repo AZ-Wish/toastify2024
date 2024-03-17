@@ -95,11 +95,14 @@
     <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
     <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
 
-    <Content Include="log4net.config">
+    <EmbeddedResource Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <Resource Include="Resources\**\*.png" />
     <Resource Include="Resources\**\*.ico" />
+    <None Update="post-build.cmd">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
 
     <!-- Settings -->
     <None Update="Properties\Settings.settings" Generator="SettingsSingleFileGenerator" LastGenOutput="Settings.Designer.cs" />
