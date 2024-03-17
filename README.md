@@ -30,13 +30,13 @@ or use Spotify's own overlay on Windows (check out [this article](https://www.al
 
 ## Requirements
 * Windows (11, 10, 8/8.1, 7)
-* .NET Framework 4.7.2 or greater
+* .NET Framework 4.8 or greater
 * Spotify 
 
 
 ## Information for contributors
 * The language version used to build the project is C# 7
-* The solution requires Visual Studio 2017 (or Visual Studio Code, alternatively)
+* The solution requires Visual Studio 2022 (Visual Studio 2017 or Visual Studio Code, alternatively)
 * Dependencies are not included. Use of NuGet is highly recommended.
 * The repository has a git submodule; use `git submodule update --init --recursive` to initialize it.
 * Several [NSIS plugins](https://nsis.sourceforge.io/Category:Plugins) are required to create the installer:
@@ -47,24 +47,34 @@ or use Spotify's own overlay on Windows (check out [this article](https://www.al
 	* ShellExecAsUser
 
 
-## Requirements for Visual Studio 2017
-* [.NET SDK 8.0.201](https://aka.ms/donet/download)
-* [.NET Framework 4.7.2 Developer Pack](https://aka.ms/msbuild/developerpacks) for Toastify project
-* [.NET Framework 4.5.2 Developer Pack](https://aka.ms/msbuild/developerpacks) for Toastify.Installer and Toastify.Updater projects
+## Requirements for Visual Studio 2022
+* [.NET Framework 4.8 Developer Pack](https://aka.ms/msbuild/developerpacks)
+
+## Building VS 2022
+
+Updating version: [View/Terminal]
+	`.\update-version.ps1`
+
+Compile the project
+
+The executable installer `ToastifyInstaller.exe` is available at the Release folder
+
+
+## Building VS 2017
+
+Updating version: [View/Other Windows/Package Manager Controller]
+	`.\update-version.ps1`
+
+Compile the project
+
+The executable installer `ToastifyInstaller.exe` is available at the Release folder
+
 
 ## Additional requirements for Visual Studio Code (not tested)
 [C# Dev Kit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 Executing task: dotnet: build 
 
-## Building
-
-Updating version: [View/Other Windows/Package Manager COntroller]
-	`.\update-version.ps1`
-
-Compile the project
-
-The executable installer `ToastifyInstaller.exe` is available at the Release folder
 
 
 ## Notices

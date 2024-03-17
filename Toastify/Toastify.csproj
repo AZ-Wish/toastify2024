@@ -7,7 +7,7 @@
     <Configuration Condition="'$(Configuration)' == ''">Windows (Debug)</Configuration>
     <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <LangVersion>default</LangVersion>
     <RootNamespace>Toastify</RootNamespace>
     <StartupObject>Toastify.EntryPoint</StartupObject>
@@ -22,7 +22,7 @@
     <TimeOfDayTotalSeconds>$([MSBuild]::Divide($([System.DateTime]::get_Now().get_TimeOfDay().get_TotalSeconds()), 2).ToString('F0'))</TimeOfDayTotalSeconds>
     <Revision>$(TimeOfDayTotalSeconds)</Revision>
     <Revision Condition="'$(Configuration)' != 'Windows (Release)'">0</Revision>
-    <Version>1.12.1</Version>
+    <Version>1.12.2</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version).$(Revision)</FileVersion>
     <AssemblyName>Toastify</AssemblyName>
@@ -107,6 +107,10 @@
 
     <!-- WPF items -->
     <Compile Update="**\*.xaml.cs" SubType="Designer" DependentUpon="%(Filename)" />
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
 
     <!-- TextTemplate items -->
     <None Include="src\Services\Analytics.g.tt" Generator="TextTemplatingFileGenerator" LastGenOutput="Analytics.g.cs" />
@@ -157,7 +161,7 @@
     <DefineConstants>TRACE;TEST_RELEASE</DefineConstants>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <Optimize>true</Optimize>
+    <Optimize>False</Optimize>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <OutputPath>bin\AnyCPU\Test Release\Windows\</OutputPath>
@@ -181,7 +185,7 @@
     <DefineConstants>TRACE;TEST_RELEASE</DefineConstants>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <Optimize>true</Optimize>
+    <Optimize>False</Optimize>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputPath>bin\x64\Test Release\Windows\</OutputPath>
   </PropertyGroup>
@@ -192,6 +196,10 @@
     <PostBuildEvent />
     <Company>Alessandro Attard Barbini, Oren Nachman, Jesper Palm, Manuel Martin-Vivaldi</Company>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <PackageProjectUrl>https://github.com/IGZmanuelMartinVivaldi/toastify/releases</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/IGZmanuelMartinVivaldi/toastify</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   
   <!-- Events' Properties and Items -->
