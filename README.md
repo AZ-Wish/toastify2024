@@ -59,8 +59,8 @@ Executing task: dotnet: build
 
 ## Building
 
-Updating version:
-	`.\update-version.cmd`
+Updating version: [View/Other Windows/Package Manager COntroller]
+	`.\update-version.ps1`
 
 Compile the project
 

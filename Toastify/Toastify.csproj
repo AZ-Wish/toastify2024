@@ -22,7 +22,7 @@
     <TimeOfDayTotalSeconds>$([MSBuild]::Divide($([System.DateTime]::get_Now().get_TimeOfDay().get_TotalSeconds()), 2).ToString('F0'))</TimeOfDayTotalSeconds>
     <Revision>$(TimeOfDayTotalSeconds)</Revision>
     <Revision Condition="'$(Configuration)' != 'Windows (Release)'">0</Revision>
-    <Version>1.12.0</Version>
+    <Version>1.12.1</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version).$(Revision)</FileVersion>
     <AssemblyName>Toastify</AssemblyName>
@@ -55,17 +55,17 @@
 
   <!-- Package References -->
   <ItemGroup>
-    <PackageReference Include="Castle.Windsor" Version="4.1.0" />
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="3.3.0" />
-    <PackageReference Include="GoogleMeasurementProtocol" Version="1.4.2" />
-    <PackageReference Include="JetBrains.Annotations" Version="11.1.0" />
-    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Castle.Windsor" Version="6.0.0" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+    <PackageReference Include="GoogleMeasurementProtocol" Version="1.4.3" />
+    <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
+    <PackageReference Include="log4net" Version="2.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
     <PackageReference Include="Microsoft.Packaging.Tools.Trimming" Version="1.1.0-preview1-26619-01" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="PowerArgs" Version="2.8.1" />
-    <PackageReference Include="SpotifyAPI.Web" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="PowerArgs" Version="3.6.0" />
+    <PackageReference Include="SpotifyAPI.Web" Version="3.1.2" />
   </ItemGroup>
 
   <!-- Regular References -->
@@ -95,9 +95,9 @@
     <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
     <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
 
-    <EmbeddedResource Include="log4net.config">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\**\*.png" />
     <Resource Include="Resources\**\*.ico" />
 
@@ -146,7 +146,7 @@
     <OutputPath>bin\AnyCPU\Debug\Windows\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Windows (Release)|AnyCPU'">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Optimize>true</Optimize>
