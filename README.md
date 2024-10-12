@@ -2,7 +2,9 @@
 
 This project is a fork of the original [aleab/Toastify](https://github.com/aleab/toastify) project, which has been archived by the owner on Feb 2, 2023. This fork is intended to keep the project alive and functional, and maybe add new features and improvements.
 
-Another updated working version is available from  [IceyFL/Toastify](https://github.com/IceyFL/Fixed-Toastify)
+Another updated working versions that uses .NET 6.0 are available from  
+[thedmd](https://github.com/thedmd/toastify)
+[IceyFL/Toastify](https://github.com/IceyFL/Fixed-Toastify)
 
 
 [![GitHub last commit (master)](https://img.shields.io/github/last-commit/IGZmanuelMartinVivaldi/toastify/master.svg?label=Last%20Commit&maxAge=60)][commits]
